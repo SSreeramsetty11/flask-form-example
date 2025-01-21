@@ -6,9 +6,9 @@
 <body>
     <h1>Stored Data</h1>
     <ul>
-        {{#each users}}
-            <li>User: {{username}} - {{email}}</li>
-        {{/each}}
+        {% for user in users %}
+            <li>User: {{ user.username }} - {{ user.email }}</li>
+        {% endfor %}
     </ul>
     <a href="/">Go Back</a>
     <a href="/signup" class="button">Sign Up</a>
