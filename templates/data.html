@@ -6,10 +6,12 @@
 <body>
     <h1>Stored Data</h1>
     <ul>
-        {% for email, details in data.items() %}
-            <li><strong>Name:</strong> {{ details.name }} | <strong>Email:</strong> {{ email }}</li>
-        {% endfor %}
+        {{#each users}}
+            <li>User: {{username}} - {{email}}</li>
+        {{/each}}
     </ul>
     <a href="/">Go Back</a>
+    <a href="/signup" class="button">Sign Up</a>
+    <a href="/form" class="button">Submit Form</a>
 </body>
 </html>

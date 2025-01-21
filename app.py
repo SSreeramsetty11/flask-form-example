@@ -1,30 +1,26 @@
-from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-# In-memory storage
-data_store = {}
-
-# Route for the form
 @app.route('/')
-def index():
-    return render_template('form.html')
+def home():
+    return redirect(url_for('signup'))
 
-# Route to handle form submission
-@app.route('/submit', methods=['POST'])
-def submit_form():
-    name = request.form.get('name')
-    email = request.form.get('email')
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        password = request.form['password']
+        # Here you would typically save the user data to a database
+        return redirect(url_for('data'))  # Redirect to a data page after sign up
+    return render_template('signup.html')
 
-    # Save to the in-memory storage
-    data_store[email] = {'name': name, 'email': email}
-
-    return redirect(url_for('show_data'))
-
-# Route to display the stored data
 @app.route('/data')
-def show_data():
-    return render_template('data.html', data=data_store)
+def data():
+    # Placeholder for user data
+    users = []  # Replace with actual user data retrieval
+    return render_template('data.html', users=users)
 
 if __name__ == '__main__':
     app.run(debug=True)
