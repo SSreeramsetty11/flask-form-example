@@ -6,13 +6,10 @@
 <body>
     <h1>Stored Data</h1>
     <ul>
-        <li>User: User1 - user1@example.com</li>
-        <li>User: User2 - user2@example.com</li>
-        <li>User: User3 - user3@example.com</li>
-        
+        {% for user in users %}
+            <li><strong>Name:</strong> {{ user.name }} | <strong>Email:</strong> {{ email }}</li>
+        {% endfor %}
     </ul>
     <a href="/">Go Back</a>
-    <a href="/signup" class="button">Sign Up</a>
-    <a href="/form" class="button">Submit Form</a>
 </body>
 </html>
