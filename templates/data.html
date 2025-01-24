@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Stored Data</title>
-</head>
-<body>
-    <h1>Stored Data</h1>
-    <ul>
-        {% for user in users %}
-            <li><strong>Name:</strong> {{ user.username }} | <strong>Email:</strong> {{ user.email }}</li>
-        {% endfor %}
-    </ul>
-    <a href="/">Go Back</a>
-</body>
-</html>
+<!-- templates/data.html -->
+
+<h1>User Data</h1>
+
+<ul>
+    {% for user in users %}
+        <li>{{ user.username }} ({{ user.email }})</li>
+    {% endfor %}
+</ul>
+
+<button onclick="location.href='/signup'">Sign Up</button>
+<button onclick="location.href='/'">Home</button>
